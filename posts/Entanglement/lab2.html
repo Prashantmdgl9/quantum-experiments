@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prashant Mudgal">
+<meta name="dcterms.date" content="2023-05-28">
+
+<title>Quantum Experiments - Entanglement and CHSH Inequality</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../pngegg.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Quantum Experiments</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Prashantmdgl9" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://drive.google.com/file/d/1vWh8q3j5mZKzGG8CY83Jv-QcKlXxnSq3/view?usp=sharing" rel="" target=""><i class="bi bi-person" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://prashantmdgl9.github.io/ml_experiments/" rel="" target="">
+ <span class="menu-text">ML Blog</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Entanglement and CHSH Inequality</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">quantum theory</div>
+                <div class="quarto-category">qiskit</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Prashant Mudgal </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 28, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>How quantum mechnaics can’t be described by the hidden variable theory.</p>
+<section id="lab-2---creating-entanglement-with-qiskit" class="level1">
+<h1>Lab 2 - Creating Entanglement with Qiskit</h1>
+<p>This lab demonstrates interesting properties of <em>entangled</em> qubits. In particular, we will consider two experiments: - <strong>CHSH Inequality Violation</strong> - this shows that quantum mechanics <em>cannot</em> be explained by a local hidden variable theory - <strong>Teleportation</strong> - teleport an arbitrary quantum state using an entangled qubit pair as a resource</p>
+<p>In particular, this lab demonstrates how to use new features from IBM Quantum - <strong>Primitives</strong> - abstract measurement and error mitigation for scalable quantum computing - <strong>Dynamic Circuits</strong> - mid-circuit measurement and feed-forward within the qubits’ coherence time</p>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>Start by importing some libraries we need, including the <code>Sampler</code> and <code>Estimator</code> primitives from Qiskit. While the primitives from <code>qiskit.providers</code> use a local statevector simulator by default, the syntax within this lab is easily generalizable to running experiments on real systems.</p>
+<p>To run on real hearware requires a Qiskit Runtime service instance. If you haven’t done so already, follow the instructions in the Qiskit <a href="https://qiskit.org/documentation/partners/qiskit_ibm_runtime/getting_started.html">Getting started guide</a> to set one up. TODO: include video links and such. After setup, import the <code>Sampler</code> and <code>Estimator</code> primitives from <code>qiskit_ibm_runtime</code> instead. Additionally we will need <code>QiskitRuntimeService</code> and <code>Session</code>, which form the interface between Qiskit and Qiskit IBM Runtime. Then the below exercises can be run on real systems by instantiating the primitives in this way (as opposed to from <code>qiskit.primitives</code>):</p>
+<pre><code>from qiskit_ibm_runtime import QiskitRuntimeService, Session, Sampler, Estimator
+
+service = QiskitRuntimeService()
+backend = service.get_backend('...')
+session = Session(service=service, backend=backend)
+sampler = Sampler(session=session)
+estimator = Estimator(session=session)</code></pre>
+<p>where additional options can be specified in the <code>Sampler</code> and <code>Estimator</code> with the <code>Options</code> class. See this <a href="https://qiskit.org/ecosystem/ibm-runtime/how_to/run_session.html">how-to</a> for using Primitives with Runtime Sessions.</p>
+<div class="cell" data-tags="[]" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> QuantumCircuit</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.primitives <span class="im">import</span> Estimator, Sampler</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.quantum_info <span class="im">import</span> SparsePauliOp</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization <span class="im">import</span> plot_histogram</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'dark_background'</span>) <span class="co"># optional</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="chsh-inequality-violation" class="level2">
+<h2 class="anchored" data-anchor-id="chsh-inequality-violation">CHSH Inequality Violation</h2>
+<section id="warm-up" class="level3">
+<h3 class="anchored" data-anchor-id="warm-up">Warm Up</h3>
+<p>Create circuits that put the qubit in the excited <span class="math inline">\(|1\rangle\)</span> and superposition <span class="math inline">\(|+\rangle\)</span> states, respectivly, and measure them in different bases. This is done first with the <code>Sampler</code> primitive (which is most similar to the <code>backend.run()</code> used in the previous lab), and then with the <code>Estimator</code> primitive to show how measurement is abstracted in that we do not need to worry about rotating the qubit into the appropriate measurement basis. The primitives will be executed withing the <code>Session</code> context which allows efficiency to optimize workloads.</p>
+<div class="cell" data-tags="[]" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create excited |1&gt; state</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>qc_1 <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>qc_1.x(<span class="dv">0</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>qc_1.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<p><img src="lab2_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create superposition |+&gt; state</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>qc_plus <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>qc_plus.h(<span class="dv">0</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>qc_plus.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<p><img src="lab2_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="sampler-primitive" class="level3">
+<h3 class="anchored" data-anchor-id="sampler-primitive">Sampler Primitive</h3>
+<p>First use the <code>Sampler</code> to measure qubits in the <span class="math inline">\(Z\)</span>-basis (the physical basis in which qubits are measured). The <code>Sampler</code> will count the number of outcomes of the <span class="math inline">\(|0\rangle\)</span> state and <span class="math inline">\(|1\rangle\)</span> state, normalized by the number of shots (experiments performed). The <code>Sampler</code> also offers the ability to easily perform error mitigation (which is covered in Lab 5), which modifies this calculation, and hence the outcomes are refered to as <em>quasi-probabilities</em>.</p>
+<p>Measurments must be present in the circuit when using the <code>Sampler</code> primitive. Then the <code>Session</code> context is opened, the <code>Sampler</code> is instantiated, and <code>sampler.run()</code> is used to send the circuits to the backend, similar to the <code>backend.run()</code> syntax you may already be familiar with.</p>
+<div class="cell" data-tags="[]" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>qc_1.measure_all()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>qc_plus.measure_all()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sampler <span class="op">=</span> Sampler()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>job_1 <span class="op">=</span> sampler.run(qc_1)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>job_plus <span class="op">=</span> sampler.run(qc_plus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>job_1.result().quasi_dists</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>[{1: 1.0}]</code></pre>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>job_plus.result().quasi_dists</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>[{0: 0.4999999999999999, 1: 0.4999999999999999}]</code></pre>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>legend <span class="op">=</span> [<span class="st">"Excited State"</span>, <span class="st">"Plus State"</span>] <span class="co"># </span><span class="al">TODO</span><span class="co">: Excited State does not appear</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plot_histogram([job_1.result().quasi_dists[<span class="dv">0</span>], job_plus.result().quasi_dists[<span class="dv">0</span>]], legend<span class="op">=</span>legend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<p><img src="lab2_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The result for the excited state is always <span class="math inline">\(|1\rangle\)</span> wheres it is roughly half <span class="math inline">\(|0\rangle\)</span> and half <span class="math inline">\(|1\rangle\)</span> for the plus superposition state. This is because the <span class="math inline">\(|0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span> states are <em>eigenstates</em> of the <span class="math inline">\(Z\)</span> operator (with <span class="math inline">\(+1\)</span> and <span class="math inline">\(-1\)</span> eigenvalues, respectively).</p>
+<p>Let’s switch and measure in the <span class="math inline">\(X\)</span> basis. Using the <code>Sampler</code> we must rotate the qubit from the <span class="math inline">\(X\)</span>-basis to the <span class="math inline">\(Z\)</span>-basis for measurement (because that is the only basis we can actually perform measurement in).</p>
+<div class="cell" data-tags="[]" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>qc_1.remove_final_measurements()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>qc_plus.remove_final_measurements()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># rotate into the X-basis</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>qc_1.h(<span class="dv">0</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>qc_plus.h(<span class="dv">0</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>qc_1.measure_all()</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>qc_plus.measure_all()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sampler <span class="op">=</span> Sampler()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>job_1 <span class="op">=</span> sampler.run(qc_1)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>job_plus <span class="op">=</span> sampler.run(qc_plus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plot_histogram([job_1.result().quasi_dists[<span class="dv">0</span>], job_plus.result().quasi_dists[<span class="dv">0</span>]], legend<span class="op">=</span>legend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<p><img src="lab2_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Now we see the opposite: the plus superposition always give the 1 result, hence an eigenstate of the <span class="math inline">\(X\)</span> operator, whereas the excited <span class="math inline">\(|1\rangle\)</span> yields a roughtly fifty-fifty split. The <span class="math inline">\(|+\rangle\)</span> and <span class="math inline">\(|-\rangle\)</span> states are eigenstates of the <span class="math inline">\(X\)</span> operator, with eigenvalues <span class="math inline">\(+1\)</span> and <span class="math inline">\(-1\)</span>, respectively. This is good to remember when considering how the <code>Estimator</code> works in the next subsection.</p>
+</section>
+<section id="estimator-primitive" class="level3">
+<h3 class="anchored" data-anchor-id="estimator-primitive">Estimator Primitive</h3>
+<p>The Qiskit Runtime Primitives allow us to abstract measurement into the <code>Estimator</code> primitive, where it is specified as an <em>observable</em>. In particular, we can construct the same circuits, the excited <span class="math inline">\(|1\rangle\)</span> and superposition <span class="math inline">\(|+\rangle\)</span> as before. However, in the case of the <code>Estimator</code>, we <em>do not</em> add measurements to the circuit. Instead, specify a list of observables which take the form of Pauli strings. In our case for a measurement of a single qubit, we specify <code>'Z'</code> for the <span class="math inline">\(Z\)</span>-basis and <code>'X'</code> for the <span class="math inline">\(X\)</span>-basis.</p>
+<div class="cell" data-tags="[]" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>qc2_1 <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>qc2_1.x(<span class="dv">0</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>qc2_plus <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>qc2_plus.h(<span class="dv">0</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>obsvs <span class="op">=</span> <span class="bu">list</span>(SparsePauliOp([<span class="st">'Z'</span>, <span class="st">'X'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>estimator <span class="op">=</span> Estimator()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>job2_1 <span class="op">=</span> estimator.run([qc2_1]<span class="op">*</span><span class="bu">len</span>(obsvs), observables<span class="op">=</span>obsvs)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>job2_plus <span class="op">=</span> estimator.run([qc2_plus]<span class="op">*</span><span class="bu">len</span>(obsvs), observables<span class="op">=</span>obsvs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>job2_1.result()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>EstimatorResult(values=array([-1.,  0.]), metadata=[{}, {}])</code></pre>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: make this into module that outputs a nice table</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'    |   &lt;Z&gt;   |   &lt;X&gt; '</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'----|------------------'</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'|1&gt; | </span><span class="sc">{</span>job2_1<span class="sc">.</span>result()<span class="sc">.</span>values[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">    | </span><span class="sc">{</span>job2_1<span class="sc">.</span>result()<span class="sc">.</span>values[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'|+&gt; | </span><span class="sc">{</span>job2_plus<span class="sc">.</span>result()<span class="sc">.</span>values[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> | </span><span class="sc">{</span>job2_plus<span class="sc">.</span>result()<span class="sc">.</span>values[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    |   &lt;Z&gt;   |   &lt;X&gt; 
+----|------------------
+|1&gt; | -1.0    | 0.0
+|+&gt; | 0.0 | 0.9999999999999998</code></pre>
+</div>
+</div>
+<p>Just as before, we see the <span class="math inline">\(|1\rangle\)</span> state expectation in the <span class="math inline">\(Z\)</span>-basis is <span class="math inline">\(-1\)</span> (corresponding to its eigenvalue) and around zero in the <span class="math inline">\(X\)</span>-basis (average over <span class="math inline">\(+1\)</span> and <span class="math inline">\(-1\)</span> eigenvalues), and vice-versa for the <span class="math inline">\(|+\rangle\)</span> state (although its eigenvalue of the <span class="math inline">\(X\)</span> operators is <span class="math inline">\(+1\)</span>).</p>
+</section>
+</section>
+<section id="chsh-inequality" class="level2">
+<h2 class="anchored" data-anchor-id="chsh-inequality">CHSH Inequality</h2>
+<p>Imagine Alice and Bob are given each one part of a bipartite entangled system. Each of them then performs two measurements on their part in two different bases. Let’s call Alice’s bases A and a and Bob’s B and b. What is the expectation value of the quantity</p>
+<p><span class="math display">\[
+\langle CHSH \rangle = \langle AB \rangle - \langle Ab \rangle + \langle aB \rangle + \langle ab \rangle ?
+\]</span></p>
+<p>Now, Alice and Bob have one qubit each, so any measurement they perform on their system (qubit) can only yield one of two possible outcomes: +1 or -1. Note that whereas we typically refer to the two qubit states as <span class="math inline">\(|0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span>, these are eigenstates, and a projective measurement will yield their eigenvalues, +1 and -1, respectively.</p>
+<p>Therefore, if any measurement of A, a, B, and b can only yield <span class="math inline">\(\pm 1\)</span>, the quantities <span class="math inline">\((B-b)\)</span> and <span class="math inline">\((B+b)\)</span> can only be 0 or <span class="math inline">\(\pm 2\)</span>. And thus, the quantity <span class="math inline">\(A(B-b) + a(B+b)\)</span> can only be either +2 or -2, which means that there should be a bound for the expectation value of the quantity we have called</p>
+<p><span class="math display">\[
+|\langle CHSH \rangle| = |\langle AB \rangle - \langle Ab \rangle + \langle aB \rangle + \langle ab \rangle| \le 2.
+\]</span></p>
+<p>Now, the above discussion is oversimplified, because we could consider that the outcome on any set of measurements from Alice and Bob could depend on a set of local hidden variables, but it can be shown with some math that, even when that is the case, the expectation value of the quantity <span class="math inline">\(CHSH\)</span> should be bounded by 2 if local realism held.</p>
+<p>But what happens when we do these experiments with an entangled system? Let’s try it!</p>
+<p>The first step is to build the observable <span class="math display">\[
+CHSH = A(B-b) + a(B+b) = AB - Ab + aB +ab
+\]</span> where <span class="math inline">\(A, a\)</span> are each one of <span class="math inline">\(\{IX, IZ\}\)</span> for qubit 0 and <span class="math inline">\(B, b\)</span> are each one of <span class="math inline">\(\{XI, ZI\}\)</span> for qubit 1 (corresponding to little-endian notation). Paulis on different qubits can be composed by specifying order with a Pauli string, for example instantiating a <code>SparsePauliOp</code> with the <code>'ZX'</code> argument implies a measurement of <span class="math inline">\(\langle X \rangle\)</span> on <code>q0</code> and <span class="math inline">\(\langle Z \rangle\)</span> on <code>q1</code> . This <em>tensor</em> product (combining operations on <em>different</em> qubits) can be explicitly stated using the <code>.tensor()</code> method. Additionally, combining operations on the <em>same</em> qubit(s) uses the <em>compositional</em> product with the <code>.compose()</code> method. For example, all these statements create the same Pauli operator:</p>
+<pre><code>from qiskit.quantum_info import SparsePauliOp
+
+ZX = SparsePauliOp('ZX')
+ZX = SparsePauliOp(['ZX'], coeffs=[1.]) # extendable to a sum of Paulis
+ZX = SparsePauliOp('Z').tensor(SparsePauliOp('X')) # extendable to a tensor product of Paulis
+ZX = SparsePauliOp('XZ').compose(SparsePauliOp('YY')) # extendable to a compositional product of Paulis</code></pre>
+<p>Ex 1 - create an operator for CHSH witness</p>
+<div class="cell" data-tags="[]" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit_ibm_runtime <span class="im">import</span> QiskitRuntimeService, Estimator, Session</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ZZ <span class="op">=</span> SparsePauliOp.from_list([(<span class="st">"ZZ"</span>, <span class="dv">1</span>)])</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ZX <span class="op">=</span> SparsePauliOp.from_list([(<span class="st">"ZX"</span>, <span class="dv">1</span>)])</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>XZ <span class="op">=</span> SparsePauliOp.from_list([(<span class="st">"XZ"</span>, <span class="dv">1</span>)])</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>XX <span class="op">=</span> SparsePauliOp.from_list([(<span class="st">"XX"</span>, <span class="dv">1</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ZZ <span class="op">+</span>ZX</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>SparsePauliOp(['ZZ', 'ZX'],
+              coeffs=[1.+0.j, 1.+0.j])</code></pre>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>obsv <span class="op">=</span> ZZ <span class="op">-</span> ZX <span class="op">+</span> XZ <span class="op">+</span> XX <span class="co"># create operator for chsh witness</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qc_grader.challenges.qgss_2023 <span class="im">import</span> grade_lab2_ex1</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>grade_lab2_ex1(obsv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Submitting your answer. Please wait...
+Congratulations 🎉! Your answer is correct and has been submitted.</code></pre>
+</div>
+</div>
+<section id="create-entangled-qubit-pair" class="level3">
+<h3 class="anchored" data-anchor-id="create-entangled-qubit-pair">Create Entangled Qubit Pair</h3>
+<p>Next we want to test the <span class="math inline">\(CHSH\)</span> observable on an entangled pair, for example the maximally-entangled Bell state <span class="math display">\[
+|\Phi\rangle = \frac{1}{\sqrt{2}} \left(|00\rangle + |11\rangle \right)
+\]</span> which is created with a Hadamard gate followed by a CNOT with the target on the same qubit as the Hadamard. Due to the simplifaction of measuring in just the <span class="math inline">\(X\)</span>- and <span class="math inline">\(Z\)</span>-bases as discussed above, we will <em>rotate</em> the Bell state around the Bloch sphere which is equivalant to changing the measurement basis as demonstrated in the Warmup section. This can be done by applying an <span class="math inline">\(R_y(\theta)\)</span> gate where <span class="math inline">\(\theta\)</span> is a <code>Parameter</code> to be specified at the <code>Estimator</code> API call. This produces the state <span class="math display">\[
+|\psi\rangle = \frac{1}{\sqrt{2}} \left(\cos(\theta/2) |00\rangle + \sin(\theta/2)|11\rangle \right)
+\]</span></p>
+<div class="cell" data-tags="[]" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> Parameter</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> Parameter(<span class="st">'θ'</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>qc.h(<span class="dv">0</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>qc.cx(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>qc.ry(theta, <span class="dv">0</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<p><img src="lab2_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Next we need to specify a <code>Sequence</code> of <code>Parameter</code>s that show a clear violation of the CHSH Inequality, namely <span class="math display">\[
+|\langle CHSH \rangle| &gt; 2.
+\]</span> Let’s make sure we have at least three points in violation.</p>
+<p>Ex 2 - Create a Parameterization (i.e., list, array) of the angle in the above circuit (in radians)</p>
+<p>Hint: Note the <code>type</code> for the <code>parameter_values</code> argument is <code>Sequence[Sequence[float]]</code>.</p>
+<div class="cell" data-tags="[]" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>number_of_phases <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>phases <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span> np.pi, number_of_phases)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>angles <span class="op">=</span> []</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> phases:</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    angles.append([p])   </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>angles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>[[0.0],
+ [0.2617993877991494],
+ [0.5235987755982988],
+ [0.7853981633974483],
+ [1.0471975511965976],
+ [1.308996938995747],
+ [1.5707963267948966],
+ [1.832595714594046],
+ [2.0943951023931953],
+ [2.356194490192345],
+ [2.617993877991494],
+ [2.8797932657906435],
+ [3.141592653589793],
+ [3.4033920413889422],
+ [3.665191429188092],
+ [3.926990816987241],
+ [4.1887902047863905],
+ [4.45058959258554],
+ [4.71238898038469],
+ [4.974188368183839],
+ [5.235987755982988],
+ [5.497787143782138],
+ [5.759586531581287],
+ [6.021385919380436],
+ [6.283185307179586]]</code></pre>
+</div>
+</div>
+<p>Test your angles and observable by running with the <code>Estimator</code> before submitting to the grader.</p>
+<div class="cell" data-tags="[]" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.primitives <span class="im">import</span> Estimator, Sampler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>estimator <span class="op">=</span> Estimator()</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> estimator.run([qc]<span class="op">*</span><span class="bu">len</span>(angles), observables<span class="op">=</span>[obsv]<span class="op">*</span><span class="bu">len</span>(angles), parameter_values<span class="op">=</span>angles)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>exps <span class="op">=</span> job.result().values</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>plt.plot(angles, exps, marker<span class="op">=</span><span class="st">'x'</span>, ls<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>plt.plot(angles, [<span class="dv">2</span>]<span class="op">*</span><span class="bu">len</span>(angles), ls<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Classical Bound'</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>plt.plot(angles, [<span class="op">-</span><span class="dv">2</span>]<span class="op">*</span><span class="bu">len</span>(angles), ls<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'angle (rad)'</span>)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'CHSH Witness'</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7fcb80419060&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="lab2_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Did you see at least 3 points outside the red dashed lines? If so, you are ready to send to the grader!</p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qc_grader.challenges.qgss_2023 <span class="im">import</span> grade_lab2_ex2</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>grade_lab2_ex2(obsv, angles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Submitting your answer. Please wait...
+Congratulations 🎉! Your answer is correct and has been submitted.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> qiskit.tools.jupyter</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>qiskit_version_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<h3 class="anchored">Version Information</h3>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Qiskit Software</td>
+<td data-quarto-table-cell-role="th">Version</td>
+</tr>
+<tr class="even">
+<td><code>qiskit-terra</code></td>
+<td>0.24.1</td>
+</tr>
+<tr class="odd">
+<td><code>qiskit-aer</code></td>
+<td>0.12.1</td>
+</tr>
+<tr class="even">
+<td><code>qiskit-ibmq-provider</code></td>
+<td>0.20.2</td>
+</tr>
+<tr class="odd">
+<td><code>qiskit</code></td>
+<td>0.43.2</td>
+</tr>
+<tr class="even">
+<td><code>qiskit-nature</code></td>
+<td>0.6.2</td>
+</tr>
+<tr class="odd">
+<td><code>qiskit-finance</code></td>
+<td>0.3.4</td>
+</tr>
+<tr class="even">
+<td><code>qiskit-optimization</code></td>
+<td>0.5.0</td>
+</tr>
+<tr class="odd">
+<td><code>qiskit-machine-learning</code></td>
+<td>0.6.1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">System information</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Python version</td>
+<td>3.10.8</td>
+</tr>
+<tr class="even">
+<td>Python compiler</td>
+<td>GCC 10.4.0</td>
+</tr>
+<tr class="odd">
+<td>Python build</td>
+<td>main, Nov 22 2022 08:26:04</td>
+</tr>
+<tr class="even">
+<td>OS</td>
+<td>Linux</td>
+</tr>
+<tr class="odd">
+<td>CPUs</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>Memory (Gb)</td>
+<td>31.211322784423828</td>
+</tr>
+<tr class="odd">
+<td colspan="2">Fri Jul 21 19:11:24 2023 UTC</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
