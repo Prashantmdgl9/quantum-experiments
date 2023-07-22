@@ -1,8 +1,15 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "|quantum experiments>",
+    "section": "",
+    "text": "Heisenberg’s Uncertainty Principle\n\n\n\n\n\n\n\nquantum theory\n\n\n\n\n\n\n\n\n\n\n\nJun 12, 2023\n\n\nPrashant Mudgal\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about me.html",
+    "href": "about me.html",
+    "title": "Who am I?",
     "section": "",
     "text": "In this blog, I am documenting my learning journey in quantum computing and quantum mechanics.\nI am mainly writing for myself, trying to explain/clarify concepts to myself while writing and crystallising them for future use too.\nThrough this blog, I am implementing the concept of “The Best Way to Learn Is to Teach”.\nIf you stumbled across this blog and you find it useful, then that’s destiny :)"
   },
@@ -19,12 +26,5 @@
     "title": "Heisenberg’s Uncertainty Principle",
     "section": "Heisenberg’s Uncertainty principle",
     "text": "Heisenberg’s Uncertainty principle\nhttps://github.com/qiskit-community/qiskit-textbook/blob/main/content/ch-states/old-unique-properties-qubits.ipynb\n\nfrom qiskit import *\nfrom qiskit.visualization import plot_histogram\n%config InlineBackend.figure_format = 'svg' # Makes the images look nice\n\n\nmeasure_z = QuantumCircuit(1,1)\nmeasure_z.measure(0,0)\n\nmeasure_z.draw(output='mpl')\n\n\n\n\n\nmeasure_x = QuantumCircuit(1,1)\nmeasure_x.h(0)\nmeasure_x.measure(0,0)\n\nmeasure_x.draw(output='mpl')\n\n\n\n\n\nqc_0 = QuantumCircuit(1)\n\nqc_0.draw(output='mpl')\n\n\n\n\n\nqc = QuantumCircuit.compose(measure_z, qc_0)\n\nqc.draw()\n\n     ┌─┐\n  q: ┤M├\n     └╥┘\nc: 1/═╩═\n      0 \n\n\n\nsim = Aer.get_backend('aer_simulator')\ncounts = sim.run(qc).result().get_counts()\n\n\ncounts\n\n{'0': 1024}\n\n\n\nprint('Results for z measurement:')\n\nplot_histogram(counts)\n\nResults for z measurement:\n\n\n\n\n\n\nqc = QuantumCircuit.compose(measure_x, qc_0)\nsim = Aer.get_backend('aer_simulator')\ncounts = sim.run(qc).result().get_counts()\nqc.draw()\n\n     ┌───┐┌─┐\n  q: ┤ H ├┤M├\n     └───┘└╥┘\nc: 1/══════╩═\n           0 \n\n\n\nprint('Results for x measurement:')\nplot_histogram(counts)\n\nResults for x measurement:\n\n\n\n\n\n\nqc_plus = QuantumCircuit(1)\nqc_plus.h(0)\n\nqc_plus.draw(output='mpl')\n\n\n\n\n\nqc = QuantumCircuit.compose(qc_plus, measure_z)\n\n\ncounts = counts = sim.run(qc).result().get_counts()\nqc.draw()\n\n     ┌───┐┌─┐\n  q: ┤ H ├┤M├\n     └───┘└╥┘\nc: 1/══════╩═\n           0 \n\n\n\nprint('Results for z measurement:')\nplot_histogram(counts)\n\nResults for z measurement:\n\n\n\n\n\n\nqc = QuantumCircuit.compose(qc_plus, measure_x)\ncounts = counts = sim.run(qc).result().get_counts()\nqc.draw()\n\n\n     ┌───┐┌───┐┌─┐\n  q: ┤ H ├┤ H ├┤M├\n     └───┘└───┘└╥┘\nc: 1/═══════════╩═\n                0 \n\n\n\nprint('Results for x measurement:')\nplot_histogram(counts)\n\nResults for x measurement:\n\n\n\n\n\nThese results hint at an important principle: Qubits have a limited amount of certainty that they can hold. This ensures that, despite the different ways we can extract outputs from a qubit, it can only be used to store a single bit of information. In the case of the blank circuit, this certainty was dedicated entirely to the outcomes of z measurements. For the circuit with a single Hadamard, it was dedicated entirely to x measurements. In this case, it is shared between the two.\n\nOther rotations\n\nqc_y = QuantumCircuit(1)\nqc_y.ry( -3.14159/4,0)\n\nqc_y.draw(output='mpl')\n\n\n\n\n\nqc = QuantumCircuit.compose(qc_y, measure_z)\n\ncounts = counts = sim.run(qc).result().get_counts()\nqc.draw()\n\n     ┌─────────────┐┌─┐\n  q: ┤ Ry(-0.7854) ├┤M├\n     └─────────────┘└╥┘\nc: 1/════════════════╩═\n                     0 \n\n\n\nprint('Results for z measurement:')\nplot_histogram(counts)\n\nResults for z measurement:\n\n\n\n\n\nHere we have a case that we have not seen before. The z measurement is most likely to output 0, but it is not completely certain. A similar effect is seen below for the x measurement: it is most likely, but not certain, to output 1.\n\nqc = QuantumCircuit.compose(qc_y, measure_x)\ncounts = counts = sim.run(qc).result().get_counts()\nqc.draw()\n\n     ┌─────────────┐┌───┐┌─┐\n  q: ┤ Ry(-0.7854) ├┤ H ├┤M├\n     └─────────────┘└───┘└╥┘\nc: 1/═════════════════════╩═\n                          0 \n\n\n\nprint('Results for x measurement:')\nplot_histogram(counts)\n\nResults for x measurement:\n\n\n\n\n\nThese results hint at an important principle: Qubits have a limited amount of certainty that they can hold. This ensures that, despite the different ways we can extract outputs from a qubit, it can only be used to store a single bit of information. In the case of the blank circuit, this certainty was dedicated entirely to the outcomes of z measurements. For the circuit with a single Hadamard, it was dedicated entirely to x measurements. In this case, it is shared between the two."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "quantum-experiments",
-    "section": "",
-    "text": "Heisenberg’s Uncertainty Principle\n\n\n\n\n\n\n\nquantum theory\n\n\n\n\n\n\n\n\n\n\n\nJun 12, 2023\n\n\nPrashant Mudgal\n\n\n\n\n\n\nNo matching items"
   }
 ]
