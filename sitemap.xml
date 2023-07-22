@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Prashantmdgl9.github.io/quantum-experiments/index.html</loc>
-    <lastmod>2023-07-22T11:29:43.331Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Prashantmdgl9.github.io/quantum-experiments/about me.html</loc>
-    <lastmod>2023-07-22T11:29:41.179Z</lastmod>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/about.html</loc>
+    <lastmod>2023-07-22T11:35:49.964Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Heisenberg/Single Qubit Gates and Heisenberg Principl.html</loc>
-    <lastmod>2023-07-22T11:29:41.910Z</lastmod>
+    <lastmod>2023-07-22T11:35:48.197Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/index.html</loc>
+    <lastmod>2023-07-22T11:35:49.549Z</lastmod>
   </url>
 </urlset>
