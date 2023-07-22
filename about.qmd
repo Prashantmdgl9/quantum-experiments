@@ -1,0 +1,26 @@
+---
+title: "Prashant Mudgal"
+image: pngegg.png
+about:
+  template: solana
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/prashantmdgl9
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/prashant-mudgal-ba210420/
+    - icon: medium
+      text: Medium 
+      href : https://medium.com/@prashantmdgl9
+
+---
+
+In this blog, I am documenting my learning journey in quantum computing and quantum mechanics.
+
+
+I am mainly writing for myself, trying to explain/clarify concepts to myself while writing and crystallising them for future use too. 
+
+Through this blog, I am implementing the concept of “The Best Way to Learn s to Teach”.
+
+If you stumbled across this blog and you find it useful, then that's destiny :)

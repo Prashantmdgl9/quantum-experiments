@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "Quantum Experiments"
+  favicon: favicon.png
+  navbar:
+    logo : pngegg.png
+    right:
+      - text: "About"
+        href:  about.qmd
+      - icon: github
+        href: https://github.com/Prashantmdgl9
+      - icon: person
+        href: https://drive.google.com/file/d/1vWh8q3j5mZKzGG8CY83Jv-QcKlXxnSq3/view?usp=sharing
+      - text: "ML Blog"
+        href: https://prashantmdgl9.github.io/ml_experiments/
+
+      
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
