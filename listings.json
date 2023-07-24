@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Coin/Coin Toss.html",
       "/posts/Dirac/lab1.html",
       "/posts/Heisenberg/Single Qubit Gates and Heisenberg Principl.html",
       "/posts/Teleport/Teleportation.html",

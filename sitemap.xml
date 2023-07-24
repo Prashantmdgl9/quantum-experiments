@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/about.html</loc>
-    <lastmod>2023-07-24T15:09:21.536Z</lastmod>
+    <lastmod>2023-07-24T18:59:42.864Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Dirac/lab1.html</loc>
-    <lastmod>2023-07-24T15:09:20.176Z</lastmod>
+    <lastmod>2023-07-24T18:59:41.586Z</lastmod>
   </url>
   <url>
-    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Heisenberg/Single Qubit Gates and Heisenberg Principl.html</loc>
-    <lastmod>2023-07-24T15:09:15.164Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/CHSH/CHSH.html</loc>
-    <lastmod>2023-07-24T15:09:15.932Z</lastmod>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Coin/Coin Toss.html</loc>
+    <lastmod>2023-07-24T18:59:39.643Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Teleport/Teleportation.html</loc>
-    <lastmod>2023-07-24T15:09:17.191Z</lastmod>
+    <lastmod>2023-07-24T18:59:38.655Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/CHSH/CHSH.html</loc>
+    <lastmod>2023-07-24T18:59:37.549Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Heisenberg/Single Qubit Gates and Heisenberg Principl.html</loc>
+    <lastmod>2023-07-24T18:59:36.897Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Entanglement/lab2.html</loc>
-    <lastmod>2023-07-24T15:09:18.896Z</lastmod>
+    <lastmod>2023-07-24T18:59:40.515Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/index.html</loc>
-    <lastmod>2023-07-24T15:09:21.100Z</lastmod>
+    <lastmod>2023-07-24T18:59:42.462Z</lastmod>
   </url>
 </urlset>
