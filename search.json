@@ -128,9 +128,9 @@
   {
     "objectID": "posts/Heisenberg_Explain/index.html",
     "href": "posts/Heisenberg_Explain/index.html",
-    "title": "Explanation of Heisenberg’s Principle",
+    "title": "Explanation of Heisenberg’s Uncertainty Principle",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\nHeisenberg’s explanation Change of basis\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "How does the uncertainty arise in the measurements and calculations for quantum particles? \nHeisenberg’s explanation Change of basis"
   },
   {
     "objectID": "posts/CHSH/CHSH.html",
@@ -256,6 +256,6 @@
     "href": "index.html",
     "title": "|quantum learnings>",
     "section": "",
-    "text": "Estimating Pi using Quantum Computer\n\n\n\n\n\n\n\napplications\n\n\n\n\n\n\n\n\n\n\n\nJul 26, 2023\n\n\n\n\n\n\n  \n\n\n\n\nTossing Quantum Coins and Winning\n\n\n\n\n\n\n\nfun\n\n\ncircuits\n\n\n\n\n\n\n\n\n\n\n\nJul 22, 2023\n\n\n\n\n\n\n  \n\n\n\n\nExplanation of Heisenberg’s Principle\n\n\n\n\n\n\n\nquantum theory\n\n\n\n\n\n\n\n\n\n\n\nJul 19, 2023\n\n\n\n\n\n\n  \n\n\n\n\nDirac Notation and Quantum Circuits\n\n\n\n\n\n\n\nquantum theory\n\n\nqiskit\n\n\n\n\n\n\n\n\n\n\n\nJul 17, 2023\n\n\n\n\n\n\n  \n\n\n\n\nSchrödinger’s Worm\n\n\n\n\n\n\n\nfun\n\n\n\n\n\n\n\n\n\n\n\nJun 30, 2023\n\n\n\n\n\n\n  \n\n\n\n\nHeisenberg’s Uncertainty Principle\n\n\n\n\n\n\n\nquantum theory\n\n\n\n\n\n\n\n\n\n\n\nJun 12, 2023\n\n\n\n\n\n\n  \n\n\n\n\nQuantum Teleportation\n\n\n\n\n\n\n\nquantum theory\n\n\nqiskit\n\n\n\n\n\n\n\n\n\n\n\nJun 6, 2023\n\n\n\n\n\n\n  \n\n\n\n\nEntanglement and CHSH Inequality\n\n\n\n\n\n\n\nquantum theory\n\n\nqiskit\n\n\n\n\n\n\n\n\n\n\n\nMay 28, 2023\n\n\n\n\n\n\n  \n\n\n\n\nNobel Prize for Physics in 2022\n\n\n\n\n\n\n\nquantum theory\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n  \n\n\n\n\nRandom Number Generator\n\n\n\n\n\n\n\nfun\n\n\n\n\n\n\n\n\n\n\n\nMay 20, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Estimating Pi using Quantum Computer\n\n\n\n\n\n\n\napplications\n\n\n\n\n\n\n\n\n\n\n\nJul 26, 2023\n\n\n\n\n\n\n  \n\n\n\n\nTossing Quantum Coins and Winning\n\n\n\n\n\n\n\nfun\n\n\ncircuits\n\n\n\n\n\n\n\n\n\n\n\nJul 22, 2023\n\n\n\n\n\n\n  \n\n\n\n\nExplanation of Heisenberg’s Uncertainty Principle\n\n\n\n\n\n\n\nquantum theory\n\n\n\n\n\n\n\n\n\n\n\nJul 19, 2023\n\n\n\n\n\n\n  \n\n\n\n\nDirac Notation and Quantum Circuits\n\n\n\n\n\n\n\nquantum theory\n\n\nqiskit\n\n\n\n\n\n\n\n\n\n\n\nJul 17, 2023\n\n\n\n\n\n\n  \n\n\n\n\nSchrödinger’s Worm\n\n\n\n\n\n\n\nfun\n\n\n\n\n\n\n\n\n\n\n\nJun 30, 2023\n\n\n\n\n\n\n  \n\n\n\n\nHeisenberg’s Uncertainty Principle\n\n\n\n\n\n\n\nquantum theory\n\n\n\n\n\n\n\n\n\n\n\nJun 12, 2023\n\n\n\n\n\n\n  \n\n\n\n\nQuantum Teleportation\n\n\n\n\n\n\n\nquantum theory\n\n\nqiskit\n\n\n\n\n\n\n\n\n\n\n\nJun 6, 2023\n\n\n\n\n\n\n  \n\n\n\n\nEntanglement and CHSH Inequality\n\n\n\n\n\n\n\nquantum theory\n\n\nqiskit\n\n\n\n\n\n\n\n\n\n\n\nMay 28, 2023\n\n\n\n\n\n\n  \n\n\n\n\nNobel Prize for Physics in 2022\n\n\n\n\n\n\n\nquantum theory\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\n\n\n\n\n  \n\n\n\n\nRandom Number Generator\n\n\n\n\n\n\n\nfun\n\n\n\n\n\n\n\n\n\n\n\nMay 20, 2023\n\n\n\n\n\n\nNo matching items"
   }
 ]
