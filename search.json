@@ -130,7 +130,7 @@
     "href": "posts/Heisenberg_Explain/index.html",
     "title": "Explanation of Heisenberg’s Uncertainty Principle",
     "section": "",
-    "text": "How does the uncertainty arise in the measurements and calculations for quantum particles?\nHeisenberg’s explanation Change of basis"
+    "text": "How does the uncertainty arise in the measurements and calculations for quantum particles?\nThe explanation lies in the change of basis.\n\nAt first the |0&gt;, |1&gt; basis are used where the certainty of measuring the spin up and down is 100% for spin up and then we measure in the |+&gt; |-&gt; basis.\n\nIn quantum mechanics, the measurement of momentum and velocity are incompatible and thus, the uncertainty principle."
   },
   {
     "objectID": "posts/CHSH/CHSH.html",
