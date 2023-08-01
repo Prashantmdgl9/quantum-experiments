@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/VQE/index.html",
       "/posts/Heisenberg_Explain/index.html",
       "/posts/pi/Estimating_Pi.html",
       "/posts/Coin/Coin Toss.html",
