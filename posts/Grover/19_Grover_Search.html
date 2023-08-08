@@ -292,25 +292,17 @@ f: \begin{array}{c|c} \mathbf{In} &amp; \mathbf{Out} \\ \hline  |00&gt; &amp; 0 
 We start with a vector X = [10, 10, 10, 10, 10], whose mean is 10. The difference between the fourth element and the rest is: 0.
 <ul>
 <li>
-<ol type="1">
-<li>Phase inversion: [10, 10, 10, -10, 10].
+Phase inversion: [10, 10, 10, -10, 10].
 </li>
 <li>
-<ol start="2" type="1">
-<li>Mean inversion: The mean now is X_bar = 6. The rule for mean inversion is: -X_i + 2X_bar. Thus, we get: [2, 2, 2, 22, 2]. The difference between the fourth element and the rest is: 20 - it increased!
+Mean inversion: The mean now is X_bar = 6. The rule for mean inversion is: -X_i + 2X_bar. Thus, we get: [2, 2, 2, 22, 2]. The difference between the fourth element and the rest is: 20 - it increased!
 </li>
 <li>
-<ol start="3" type="1">
-<li>Phase inversion: [2, 2, 2, -22, 2].
+Phase inversion: [2, 2, 2, -22, 2].
 </li>
 <li>
-<ol start="4" type="1">
-<li>Mean inversion: The mean now is X_bar = -2.8. Then, we get: [-7.6, -7.6, -7.6, 16.4, -7.6,]. The difference between the fourth element and the rest is: 24 - it increased!
+Mean inversion: The mean now is X_bar = -2.8. Then, we get: [-7.6, -7.6, -7.6, 16.4, -7.6,]. The difference between the fourth element and the rest is: 24 - it increased!
 </li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol>
 <ul>
 <p>To implement the inversion (diffusion) operation, we will need additional (ancilla) qubit. This is how we implement the inversion operator:</p>
 <ul>
@@ -366,7 +358,7 @@ Set ancilla qubit back by applying X and H.
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    circuit.h(quantum_reg[<span class="dv">1</span>])</span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    circuit.h(quantum_reg[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</ul></li></ul></section>
+</ul></ul></section>
 <section id="the-code-below-including-the-inversion-function-above-implements-the-steps-described-above" class="level3">
 <h3 class="anchored" data-anchor-id="the-code-below-including-the-inversion-function-above-implements-the-steps-described-above">The code below including the inversion function above implements the steps described above</h3>
 <div class="cell" data-execution_count="4">
