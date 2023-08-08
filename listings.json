@@ -2,13 +2,13 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Grover/19_Grover_Search.html",
       "/posts/PKb/18_Phase Kickback.html",
       "/posts/VQE/index.html",
       "/posts/Heisenberg_Explain/index.html",
       "/posts/pi/Estimating_Pi.html",
       "/posts/Coin/Coin Toss.html",
       "/posts/Dirac/lab1.html",
-      "/posts/Grover/Grover's.html",
       "/posts/Worm/15_Schrodinger's worm.html",
       "/posts/Heisenberg/Single Qubit Gates and Heisenberg Principl.html",
       "/posts/Teleport/Teleportation.html",
