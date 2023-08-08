@@ -2,58 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/about.html</loc>
-    <lastmod>2023-08-05T21:03:58.715Z</lastmod>
+    <lastmod>2023-08-08T16:55:09.021Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Dirac/lab1.html</loc>
-    <lastmod>2023-08-05T21:03:56.945Z</lastmod>
+    <lastmod>2023-08-08T16:55:06.941Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/RNG/14_Random Number Generator.html</loc>
-    <lastmod>2023-08-05T21:03:54.914Z</lastmod>
+    <lastmod>2023-08-08T16:55:05.016Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Coin/Coin Toss.html</loc>
-    <lastmod>2023-08-05T21:03:53.854Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/PKb/18_Phase Kickback.html</loc>
-    <lastmod>2023-08-05T21:03:51.588Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/VQE/index.html</loc>
-    <lastmod>2023-08-05T21:03:50.716Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/CHSH/CHSH.html</loc>
-    <lastmod>2023-08-05T21:03:49.949Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Heisenberg/Single Qubit Gates and Heisenberg Principl.html</loc>
-    <lastmod>2023-08-05T21:03:49.302Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Heisenberg_Explain/index.html</loc>
-    <lastmod>2023-08-05T21:03:51.094Z</lastmod>
+    <lastmod>2023-08-08T16:55:03.960Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Teleport/Teleportation.html</loc>
-    <lastmod>2023-08-05T21:03:52.357Z</lastmod>
+    <lastmod>2023-08-08T16:55:01.959Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Heisenberg_Explain/index.html</loc>
+    <lastmod>2023-08-08T16:55:00.793Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Heisenberg/Single Qubit Gates and Heisenberg Principl.html</loc>
+    <lastmod>2023-08-08T16:54:58.785Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/CHSH/CHSH.html</loc>
+    <lastmod>2023-08-08T16:54:59.596Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/VQE/index.html</loc>
+    <lastmod>2023-08-08T16:55:00.414Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/PKb/18_Phase Kickback.html</loc>
+    <lastmod>2023-08-08T16:55:01.274Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Grover/Grover's.html</loc>
+    <lastmod>2023-08-08T16:55:02.491Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/pi/Estimating_Pi.html</loc>
-    <lastmod>2023-08-05T21:03:53.284Z</lastmod>
+    <lastmod>2023-08-08T16:55:03.401Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Worm/15_Schrodinger's worm.html</loc>
-    <lastmod>2023-08-05T21:03:54.444Z</lastmod>
+    <lastmod>2023-08-08T16:55:04.567Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/posts/Entanglement/lab2.html</loc>
-    <lastmod>2023-08-05T21:03:55.877Z</lastmod>
+    <lastmod>2023-08-08T16:55:05.880Z</lastmod>
   </url>
   <url>
     <loc>https://Prashantmdgl9.github.io/quantum-experiments/index.html</loc>
-    <lastmod>2023-08-05T21:03:58.321Z</lastmod>
+    <lastmod>2023-08-08T16:55:08.560Z</lastmod>
   </url>
 </urlset>
