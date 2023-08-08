@@ -304,6 +304,9 @@ Phase inversion: [2, 2, 2, -22, 2].
 Mean inversion: The mean now is X_bar = -2.8. Then, we get: [-7.6, -7.6, -7.6, 16.4, -7.6,]. The difference between the fourth element and the rest is: 24 - it increased!
 </li>
 <ul>
+</ul></ul></section>
+<section id="how-amplitude-amplification-works-in-grover-search" class="level3">
+<h3 class="anchored" data-anchor-id="how-amplitude-amplification-works-in-grover-search">How amplitude amplification works in Grover Search?</h3>
 <p>To implement the inversion (diffusion) operation, we will need additional (ancilla) qubit. This is how we implement the inversion operator:</p>
 <ul>
 <li>
@@ -358,7 +361,7 @@ Set ancilla qubit back by applying X and H.
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    circuit.h(quantum_reg[<span class="dv">1</span>])</span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    circuit.h(quantum_reg[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</ul></ul></section>
+</section>
 <section id="the-code-below-including-the-inversion-function-above-implements-the-steps-described-above" class="level3">
 <h3 class="anchored" data-anchor-id="the-code-below-including-the-inversion-function-above-implements-the-steps-described-above">The code below including the inversion function above implements the steps described above</h3>
 <div class="cell" data-execution_count="4">
